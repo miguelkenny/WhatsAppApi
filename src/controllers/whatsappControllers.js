@@ -34,11 +34,12 @@ const receivedMessage = (req, res) => {
 
             const messages = messageObject[0];
             const number = messages["from"];
+            number = number.replace('549', '54');
 
             const text = GetTextUser(messages);
 
             myConsole.log(text);
-            whatsappService.SendMessageWhatsApp("El usuario respondió: " + text, number)
+            whatsappService.SendMessageWhatsApp(text, number)
         }
 
         res.send("EVENT_RECEIVED");
