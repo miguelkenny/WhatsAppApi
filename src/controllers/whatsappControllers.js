@@ -32,11 +32,11 @@ const receivedMessage = (req, res) => {
 
         if (typeof messageObject != "undefined") {
 
-            const messages = messageObject[0];
-            const number = messages["from"];
+            let messages = messageObject[0];
+            let number = messages["from"];
             number = number.replace('549', '54');
 
-            const text = GetTextUser(messages);
+            let text = GetTextUser(messages);
 
             myConsole.log(text);
             whatsappService.SendMessageWhatsApp(text, number)
