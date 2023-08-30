@@ -7,7 +7,7 @@ const whatsappService = require('../services/whatsappService')
 const verifyToken = (req, res) => {
 
     try {
-        const accessToken = "EABWDlnMnOBEBO6BNiws1HxLZBRPwZAZAQeeVuZAuZBZCogHd8Be1J4edBqAwig0L4TFKEf9YRHwQGzPUeB7WiT0aECZBoe7bLrBLvWb82zZClsDDsILLr6BiSqeewgIP550SfFnZBirQcnwm4NeysnmotvIT2bcnUrPmGdCkAHQyVjpUnrBG5c152KxPD5as7etM3KZA2TBxrrq0kBvlvh";
+        const accessToken = "EABWDlnMnOBEBO6BNiws1HxLZBRPwZAZAQeeVuZAu";
         const token = req.query["hub.verify_token"];
         const challenge = req.query["hub.challenge"];
 
@@ -60,7 +60,7 @@ function GetTextUser(messages) {
         const interactiveObject = messages["interactive"];
         const typeInteractive = interactiveObject["type"];
         myConsole.log(interactiveObject);
-        
+
         if (typeInteractive == "button_reply") {
             return (interactiveObject["button_reply"])["title"];
 
