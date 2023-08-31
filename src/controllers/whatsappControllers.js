@@ -2,8 +2,7 @@ const fs = require('fs');
 
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 
-const whatsappService = require('../services/whatsappService');
-const samples = require('../shared/sampleModels');
+const processMessage = require('../shared/processMessage');
 
 const verifyToken = (req, res) => {
 
@@ -39,27 +38,8 @@ const receivedMessage = (req, res) => {
 
             let text = GetTextUser(messages);
 
-            if (text == "text") {
-                let data = samples.SampleText("Hola usuario", number);
-                whatsappService.SendMessageWhatsApp(data)
-            } else if (text == "image") {
-                let data = samples.SampleImage(number);
-                whatsappService.SendMessageWhatsApp(data)
-            } else if (text == "video") {
-                let data = samples.SampleVideo(number);
-                whatsappService.SendMessageWhatsApp(data)
-            } else if (text == "audio") {
-                let data = samples.SampleAudio(number);
-                whatsappService.SendMessageWhatsApp(data)
-            } else if (text == "document") {
-                let data = samples.SampleDocument(number);
-                whatsappService.SendMessageWhatsApp(data)
-            } else if (text == "button") {
-                let data = samples.SampleButtons(number);
-                whatsappService.SendMessageWhatsApp(data)
-            } else {
-                let data = samples.SampleText("No entiendo", number);
-                whatsappService.SendMessageWhatsApp(data)
+            if (text != "") {
+                processMessage.Process(text, number);
             }
 
         }
