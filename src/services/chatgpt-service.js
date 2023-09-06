@@ -31,7 +31,7 @@ const axios = require('axios');
 
 async function GetMessageChatGPT(text) {
     try {
-        const apiKey = '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'; // Reemplaza con tu clave API
+        const apiKey = process.env.APIKEY; // Reemplaza con tu clave API
         const apiUrl = 'https://api.openai.com/v1/engines/gpt-3.5-turbo/completions';
 
         const requestData = {
