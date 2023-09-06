@@ -22,7 +22,7 @@ const verifyToken = (req, res) => {
     }
 }
 
-const receivedMessage = (req, res) => {
+async function receivedMessage(req, res) {
     try {
 
         let entry = (req.body["entry"])[0];
@@ -39,7 +39,9 @@ const receivedMessage = (req, res) => {
             let text = GetTextUser(messages);
 
             if (text != "") {
-                processMessage.Process(text, number);
+                myConsole.log(text);
+                myConsole.log(number);
+                await processMessage.Process(text, number);
             }
 
         }

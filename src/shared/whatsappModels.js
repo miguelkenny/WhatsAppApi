@@ -1,4 +1,5 @@
 function MessageText(textResponse, number) {
+
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
         "preview_url": true,
@@ -101,8 +102,24 @@ function MessageButtons(number) {
     return data;
 }
 
+function MessageLocation(number) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "location",
+        "location": {
+            "latitude": "-34.63543432261527",
+            "longitude": "-58.3648314047952",
+            "name": "Bombonera",
+            "address": "Brandsen 805, C1161 CABA"
+        }
+    });
+    return data;
+}
+
 module.exports = {
     MessageText,
     MessageList,
-    MessageButtons
+    MessageButtons,
+    MessageLocation
 }
