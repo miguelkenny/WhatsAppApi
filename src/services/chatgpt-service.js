@@ -3,7 +3,7 @@
 // async function GetMessageChatGPT(text) {
 
 //     try {
-//         const configuration = new Configuration({ apiKey: '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' });
+//         const configuration = new Configuration({ apiKey: `${process.env.APIKEY;}` });
 
 //         const openAi = new OpenAIApi(configuration);
 
